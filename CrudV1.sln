@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud", "Crud\Crud.csproj", "{55B9D1E9-3041-4C0D-AC0F-597DF64A6AE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.API", "Crud\Crud.API.csproj", "{55B9D1E9-3041-4C0D-AC0F-597DF64A6AE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{938B9289-40CF-43B8-BE5A-A1DD68263D1C}"
 	ProjectSection(SolutionItems) = preProject

@@ -30,6 +30,16 @@ public static class SecurityConfiguration
             };
         });
 
+        builder.Services.AddCors(p => p.AddPolicy("CRUDCors", build =>
+        {
+                    /*Allow Single Domin*/
+            //build.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                    /*Allow Multiple Domin*/
+            //build.WithOrigins("http://localhost:4200", "http://localhost:4201").AllowAnyMethod().AllowAnyHeader();
+                    /*Allow any Domine*/
+            build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+        }));
+
         return builder; 
     }
 }
