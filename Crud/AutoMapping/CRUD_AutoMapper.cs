@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Crud.API.DTO.Student;
 using Crud.DTO.Student;
 using Crud.Model;
 
@@ -11,6 +12,7 @@ namespace Crud.AutoMapping
             CreateMap<StudentDTO, Student>();
             CreateMap<Student, UpdateStudentDTO>().ReverseMap();
             CreateMap<UsersDTO, tblUsers>();
+            CreateMap<UpdateUserDTO, tblUsers>();
         }
     }
 }

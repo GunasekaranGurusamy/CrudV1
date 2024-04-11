@@ -1,6 +1,4 @@
-﻿using Crud.Data;
-using Crud.DTO.Security;
-using Crud.DTO.Student;
+﻿using Crud.DTO.Security;
 using Crud.Handler;
 using Crud.Interface;
 using Crud.Model;

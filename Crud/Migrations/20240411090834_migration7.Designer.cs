@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Crud.Migrations
+namespace Crud.API.Migrations
 {
     [DbContext(typeof(CrudDBContext))]
-    [Migration("20240402112459_mingration2")]
-    partial class mingration2
+    [Migration("20240411090834_migration7")]
+    partial class migration7
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,9 +75,12 @@ namespace Crud.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Usr_State")
+                    b.Property<string>("Usr_Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Usr_isActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Usr_Id");
 

@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      User
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">Create</div>
+            <div class="card-body">
+              <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-sm-12 mb-2">
+                    <label>Name</label>
+                    <input type="text" formControlName="usr_Name" class="form-control" />
+                  </div>
+                  <div class="col-sm-12 mb-2">
+                    <label>Email</label>
+                    <input type="email" formControlName="usr_Email" class="form-control" />
+                  </div>
+                  <div class="col-sm-12 mb-2">
+                    <label>Passwoed</label>
+                    <input type="password" formControlName="usr_Password" class="form-control" />
+                  </div>
+                  <div class="col-sm-12 mb-2">
+                    <label>Role</label>
+                    <input type="text" class="form-control" formControlName="usr_Role" />
+                  </div>
+                  <div class="col-sm-12 mb-2">
+                    <button class="btn btn-primary" type="submit">Submit</button>&nbsp;
+                    <button class="btn btn-danger" type="button" (click)="formReset()">Clear</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">List</div>
+            <div class="card-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <td scope="col">#</td>
+                    <td scope="col">Name</td>
+                    <td scope="col">Email</td>
+                    <td scope="col">Role</td>
+                    <td scope="col">Action</td>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr scope="row" *ngFor="let user of userList">
+                    <td>{{user.usr_Id}}</td>
+                    <td>{{user.usr_Name}}</td>
+                    <td>{{user.usr_Email}}</td>
+                    <td>{{user.usr_Role}}</td>
+                    <td>
+                      <button (click)="edit(user.usr_Id)" class="btn btn-primary">Edit</button> &nbsp;
+                      <button (click)="delete(user)" class="btn btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

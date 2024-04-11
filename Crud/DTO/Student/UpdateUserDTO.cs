@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
-namespace Crud.DTO.Student
+namespace Crud.API.DTO.Student
 {
-    public class UsersDTO
+    public class UpdateUserDTO
     {
+        [Required]
+        public int Usr_Id { get; set; }
         [Required]
         public string Usr_Name { get; set; }
         [Required]

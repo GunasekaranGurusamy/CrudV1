@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace Crud.Migrations
+namespace Crud.API.Migrations
 {
-    public partial class mingration2 : Migration
+    public partial class migration7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,8 @@ namespace Crud.Migrations
                     Usr_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Usr_Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Usr_Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Usr_State = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Usr_Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Usr_isActive = table.Column<bool>(type: "bit", nullable: false,defaultValue:true)
                 },
                 constraints: table =>
                 {

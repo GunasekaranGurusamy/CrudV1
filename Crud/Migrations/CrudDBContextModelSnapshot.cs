@@ -75,11 +75,10 @@ namespace Crud.Migrations
 
                     b.Property<string>("Usr_Role")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Usr_State")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Usr_isActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Usr_Id");
 

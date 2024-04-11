@@ -15,7 +15,7 @@ namespace Crud.Model
         public string Usr_Email { get; set; }
         [Required]
         public string Usr_Role { get; set; }
-        [AllowNull]
-        public string Usr_State { get; set; }
+        [Required]
+        public bool Usr_isActive { get; set; }
     }
 }
