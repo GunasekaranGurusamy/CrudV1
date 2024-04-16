@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Bootstrap CSS -->
+  <style>
+    /* Custom styles for the login card */
+    .login-card {
+      width: 300px;
+      padding: 20px;
+      margin: auto;
+      margin-top: 100px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="login-card">
+          <h3 class="text-center mb-4">Login</h3>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="userName" class="form-label">User Name</label>
+              <input type="text" class="form-control" formControlName="userName" autocomplete="off" id="userName" placeholder="Enter UserName">
+              <error-message [control]="loginForm.controls['userName']" [controlName]="'User Name'" [isSubmitted]="loginFormSubmitted"></error-message>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password" id="password" autocomplete="off" placeholder="Enter password">
+              <error-message [control]="loginForm.controls['password']" [controlName]="'Password'" [isSubmitted]="loginFormSubmitted"></error-message>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

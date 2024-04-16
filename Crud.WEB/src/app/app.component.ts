@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,LoginComponent,AddUserComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'Crud.WEB';
+export class AppComponent implements OnInit {
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+    this.authService.getUserActivityStatus().subscribe(active => {
+      if (active) {
+        this.authService.resetUserActivityTimer();
+      }
+    });
+  }
+  
 }

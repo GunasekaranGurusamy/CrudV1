@@ -5,6 +5,7 @@ using Crud.DTO.Student;
 using Crud.Interface;
 using Crud.Model;
 using Crud.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crud.Controllers
@@ -19,7 +20,7 @@ namespace Crud.Controllers
             _user = user;
         }
 
-        [HttpGet]
+        [HttpGet,Authorize]
         public async Task<IActionResult> Get() => Ok(await _user.Get());
 
         [HttpGet("{Id:int:min(1)}")]

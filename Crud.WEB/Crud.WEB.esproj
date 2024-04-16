@@ -11,6 +11,8 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\Crud.WEB</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\app\components\" />
+    <Folder Include="src\app\modules\" />
     <Folder Include="src\app\services\" />
   </ItemGroup>
 </Project>

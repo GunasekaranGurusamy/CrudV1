@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { NgFor, NgIf } from '@angular/common';
-import { user } from '../models/user';
 import { HttpStatusCode } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { user } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 
 @Component({
-  selector: 'app-add-user',
+  selector: 'register',
   standalone: true,
   imports: [NgFor, NgIf, ReactiveFormsModule],
-  templateUrl: './add-user.component.html'
+  templateUrl: './register.component.html'
 })
-export class AddUserComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   userList: user[] = [];
-  userFormGroup : FormGroup;
+  userFormGroup: FormGroup;
 
   constructor(private userService: UserService, private fb: FormBuilder) {
     this.userFormGroup = this.fb.group({
@@ -23,7 +23,7 @@ export class AddUserComponent implements OnInit {
       usr_Email: [""],
       usr_Role: [""],
       usr_isActive: true
-    })
+    });
   }
   ngOnInit(): void {
     this.get();
@@ -53,7 +53,6 @@ export class AddUserComponent implements OnInit {
       if (resp.status == HttpStatusCode.Ok) {
         var index = this.userList.indexOf(item);
         this.userList.splice(index, 1);
-        console.log(this.userList);
       }
     });
   }
@@ -82,5 +81,4 @@ export class AddUserComponent implements OnInit {
       usr_isActive: true
     })
   }
-
 }
