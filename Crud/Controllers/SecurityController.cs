@@ -34,7 +34,7 @@ namespace Crud.Controllers
             return GenerateToken(user,string.Empty);
         }
 
-        [HttpPost("Refresh-Token"),Authorize]
+        [HttpPost("Refresh-Token")]
         public IActionResult Refresh([FromBody] LoginResponseDTO request) => GenerateToken(null, request.Token);
 
         private IActionResult GenerateToken(tblUsers? user,string token)

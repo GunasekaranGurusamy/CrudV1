@@ -22,12 +22,23 @@ export class AuthService {
     return this.httpclient.post<loginResponseDTO>(this.baseurl + "Login", payLoad).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('loginDetails', JSON.stringify(response));
       })
     );
   }
 
+  refreshToken(): Observable<loginResponseDTO> {
+    var payLoad: loginResponseDTO = JSON.parse(localStorage.getItem('loginDetails')!);
+    return this.httpclient.post<loginResponseDTO>(this.baseurl + "Refresh-Token", payLoad).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('loginDetails', JSON.stringify(response));
+      })
+    )
+  }
+
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
