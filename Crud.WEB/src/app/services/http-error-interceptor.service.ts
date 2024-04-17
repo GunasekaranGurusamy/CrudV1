@@ -17,7 +17,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           // Client-side error
           errorMessage = `Error: ${error.error.message}`;
         } else {
-          debugger
           // Server-side error
           if (error.status === 401) {
             errorMessage = error.error || 'Unauthorized';
