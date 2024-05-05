@@ -1,4 +1,5 @@
-﻿using Crud.Model;
+﻿using Crud.API.Model;
+using Crud.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Crud.Data
@@ -11,5 +12,7 @@ namespace Crud.Data
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<tblUsers> Users { get; set; }
+        public DbSet<tblUser> tblUsers { get; set; }
+        public DbSet<tblMasters> tblMasters { get; set; }
     }
 }

@@ -21,6 +21,65 @@ namespace Crud.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Crud.API.Model.tblMasters", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblMasters");
+                });
+
+            modelBuilder.Entity("Crud.API.Model.tblUser", b =>
+                {
+                    b.Property<int>("Usr_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Usr_Id"), 1L, 1);
+
+                    b.Property<string>("Usr_Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Usr_GenderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Usr_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usr_Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Usr_RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Usr_isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Usr_Id");
+
+                    b.HasIndex("Usr_GenderId");
+
+                    b.HasIndex("Usr_RoleId");
+
+                    b.ToTable("tblUsers");
+                });
+
             modelBuilder.Entity("Crud.Model.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -83,6 +142,25 @@ namespace Crud.Migrations
                     b.HasKey("Usr_Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Crud.API.Model.tblUser", b =>
+                {
+                    b.HasOne("Crud.API.Model.tblMasters", "Usr_Gender")
+                        .WithMany()
+                        .HasForeignKey("Usr_GenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Crud.API.Model.tblMasters", "Usr_Role")
+                        .WithMany()
+                        .HasForeignKey("Usr_RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usr_Gender");
+
+                    b.Navigation("Usr_Role");
                 });
 #pragma warning restore 612, 618
         }
